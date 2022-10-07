@@ -28,7 +28,7 @@
   --fs-btn: var(--fs-1);
 }
 
-@media (min-width: 50em){
+@media (min-width: 45em){
   :root{
     --fs-body: var(--fs-2);
     --fs-primary-heading: var(--fs-5);
@@ -36,8 +36,6 @@
     --fs-nav: var(--fs-1);
   }
 }
-
-
 
 
  /* https://piccalil.li/blog/a-modern-css-reset */
@@ -90,7 +88,8 @@ p[data-width="wide"]{
 
 html,
 body{
-  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 /* Set core body defaults */
@@ -230,8 +229,69 @@ a{
 
 
 
-
 /* GENERAL STYLING */
+/* HERO */
+.hero-img{
+  margin-inline: auto;
+  order: -1;
+}
+
+.hero-img::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 75%;
+  max-height: 55vh;
+  aspect-ratio: 1 / 1.5;
+  background-image: url(./images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+
+@media (min-width: 45em) {
+  .hero-img{
+    order: 0;
+  }
+
+  .hero-img::before{
+    width: 45%;
+    max-height: 60vh;
+    aspect-ratio: 1 / 1.2;
+  }
+}
+
+/* SERVICES */
+.service{
+  position: relative;
+}
+
+.service-heading::before{
+  content: url("./images/bg-tablet-pattern.svg");
+  position: absolute;
+  z-index: -1;
+  zoom: 45%;
+  bottom: 90%;
+  right: 0;
+  width: 42%;
+}
+
+@media (min-width: 45em) {
+  .service-heading::before{
+    content: url("./images/bg-tablet-pattern.svg");
+    position: absolute;
+    z-index: -1;
+    zoom: 70%;
+    top: 50%;
+    left: -40rem;
+    width: 40%;
+  }
+}
+
+
+/* CAROUSEL */
 .carousel{
   text-align: center;
 }
@@ -248,6 +308,7 @@ a{
   width: 100%;
   flex: 0 0 auto;
   text-align: center;
+  scroll-padding-inline: 25px;
 }
 
 .slider .profile{
@@ -301,7 +362,7 @@ a{
   display: none;
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 40rem) {
   .slider{
     margin-inline: 0;
   }
@@ -309,40 +370,6 @@ a{
   .slider > * {
     width: 50%;
   }
-
-  /* .a11y-slider-prev{
-    position: relative;
-    display: block;
-    margin-block: 2rem -1rem;
-    font-size: 0;
-  }
-
-  .a11y-slider-next{
-    position: relative;
-    display: block;
-    margin-block: 1rem -1rem;
-    margin-inline-start: auto;
-  }
-
-  .a11y-slider-prev::before{
-    content: "<";
-    font-family: var(--ff);
-    font-size: 3.5rem;
-    position: absolute;
-    inset: 0;
-    transform: translateY(-5rem);
-  }
-
-  .a11y-slider-next::before{
-    content: ">";
-    font-family: var(--ff);
-    font-size: 3.5rem;
-    position: absolute;
-    inset: 0;
-    top: -6rem;
-    margin-block-start: -2rem;
-  } */
-    
 }
 
 @media (min-width: 60rem) {
@@ -451,14 +478,14 @@ a{
   font-size: var(--fs-nav);
   font-weight: var(--fw-400);
   display: flex;
-  gap: clamp(1rem, 4vw, 7rem);
+  gap: clamp(1rem, 3vw, 7rem);
 }
 
 .mobile-nav-toggle{
   display: none;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 45em) {
 
   /* Desktop navigation */
   .primary-nav{
@@ -504,12 +531,22 @@ a{
     display: block;
     padding: 0.5rem;
     border: none;
+    outline: none;
     background-color: transparent;
     cursor: pointer;
     position: fixed;
     z-index: 1000;
     right: 1rem;
-    top: 2.5rem
+    top: 2.5rem;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-image: url(./images/icon-hamburger.svg); 
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .mobile-nav-toggle[data-opened]{
+    background-image: url(./images/icon-close.svg);
   }
 
   .icon-close{
@@ -630,7 +667,7 @@ form input{
   grid-area: copyright;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 45em) {
   .footer-widget{
     grid-template-areas: 
       "logo nav form"
