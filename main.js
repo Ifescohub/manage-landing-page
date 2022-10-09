@@ -12,12 +12,36 @@ navToggle.addEventListener("click", ()=>{
     
 })
 
-const slider = new A11YSlider(document.querySelector('.slider'), {
-    adaptiveHeight: false,
-    dots: true,
-    responsive: {
-        960: {
-          dots: false
-        }
-      }
-  });
+// const slider = new A11YSlider(document.querySelector('.slider'), {
+//     adaptiveHeight: false,
+//     dots: true,
+//     responsive: {
+//         960: {
+//           dots: false
+//         }
+//       }
+//   });
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  slidesPerGroup: 1,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+    },
+    960: {
+      slidesPerView: 3
+    }
+  }
+});
