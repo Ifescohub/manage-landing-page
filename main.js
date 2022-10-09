@@ -1,36 +1,19 @@
 const navToggle = document.querySelector(".mobile-nav-toggle");
-const primaryNav = document.querySelector(".primary-nav");
 
 navToggle.addEventListener("click", ()=>{
-    primaryNav.hasAttribute("data-visible")
-    ? navToggle.setAttribute("aria-expanded", false)
-    : navToggle.setAttribute("aria-expanded", true)
-    
-    primaryNav.toggleAttribute("data-visible")
-    navToggle.toggleAttribute("data-opened")
-    document.querySelector("header").toggleAttribute("data-opened")
-    
+    document.querySelector(".primary-nav").toggleAttribute("data-visible");
+    document.querySelector("header").toggleAttribute("data-opened");
+    navToggle.toggleAttribute("data-opened");
 })
 
-// const slider = new A11YSlider(document.querySelector('.slider'), {
-//     adaptiveHeight: false,
-//     dots: true,
-//     responsive: {
-//         960: {
-//           dots: false
-//         }
-//       }
-//   });
 
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
   slidesPerView: 1,
   spaceBetween: 30,
   slidesPerGroup: 1,
-  loop: true,
   loopFillGroupWithBlank: true,
   pagination: {
     el: ".swiper-pagination",
@@ -42,6 +25,14 @@ const swiper = new Swiper('.swiper', {
     },
     960: {
       slidesPerView: 3
+    },
+    1300: {
+      slidesPerView: 4
     }
   }
 });
+
+if($(".slider .slide").length == 1) {
+  $('.swiper-wrapper').addClass( "disabled" );
+  $('.swiper-pagination').addClass( "disabled" );
+}
