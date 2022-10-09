@@ -46,7 +46,7 @@
       </div> 
     </header>
     <main>
-      <section class="hero container padding-block-4">
+      <section class="hero | container padding-block-4">
         <div class="even-columns">
           <div class="center-align">
             <h1 class="fs-pri-heading">
@@ -210,8 +210,12 @@
           </ul>
         </nav>
 
-        <form action="">
-          <input type="email" placeholder="Update in your inbox">
+        <form name="form" action="">
+          <fieldset>
+            <input type="email" name="email" placeholder="Update in your inbox">
+            <p class="error-message"></p>
+          </fieldset>
+          
           <button class="btn">Go</button>
         </form>
 

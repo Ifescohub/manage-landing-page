@@ -1,5 +1,7 @@
 const navToggle = document.querySelector(".mobile-nav-toggle");
 
+
+// FORMATTING NAVIGATION BAR 
 navToggle.addEventListener("click", ()=>{
     document.querySelector(".primary-nav").toggleAttribute("data-visible");
     document.querySelector("header").toggleAttribute("data-opened");
@@ -7,7 +9,7 @@ navToggle.addEventListener("click", ()=>{
 })
 
 
-
+// FORMATTING SLIDER 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
@@ -32,7 +34,23 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
-if($(".slider .slide").length == 1) {
-  $('.swiper-wrapper').addClass( "disabled" );
-  $('.swiper-pagination').addClass( "disabled" );
+// if($(".slider .slide").length == 1) {
+//   $('.swiper-wrapper').addClass( "disabled" );
+//   $('.swiper-pagination').addClass( "disabled" );
+// }
+
+
+// FORMATTING FORM INPUT 
+
+document.forms["form"].onsubmit = (e)=>{
+    e.preventDefault();
+  let inputValue = document.form.email.value;
+  let errorEl = document.form.querySelector(".error-message");
+  if (!inputValue.length){
+    errorEl.textContent = "Please enter an email"
+  }else {
+    form.submit();
+  }
+
 }
+
