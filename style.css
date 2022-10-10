@@ -16,11 +16,14 @@
   --fw-500: 500;
   --fw-700: 700;
 
+  
   --fs-1: 0.875rem;
   --fs-2: 1rem;
   --fs-3: 1.875rem;
   --fs-4: 2.5rem;
   --fs-5: 3.5rem; 
+  --fs-footer: 0.75;
+
 
   --fs-body: var(--fs-1);
   --fs-primary-heading: var(--fs-4);
@@ -55,9 +58,9 @@
   font: inherit;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+/* Remove list styles on ul, ol elements, which suggests default styling will be removed */
+ul,
+ol{
   list-style: none;
 }
 
@@ -588,8 +591,11 @@ a{
 .footer-nav{
   grid-area: nav;
   display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: max(6vw, 2rem);
+  row-gap: 2rem;
+  font-size: var(--fs-footer);
 }
 
 .footer-nav a{
@@ -604,9 +610,9 @@ a{
 form{
   grid-area: form;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 fieldset{
@@ -641,7 +647,6 @@ input{
 
 .attribution{
   grid-area: attribution;
-  font-size: 0.75rem;
 }
 
 .attribution a{
@@ -678,7 +683,7 @@ input{
 
   .footer-nav{
     gap: max(6vw, 1rem);
-    font-size: 0.65rem;
+    justify-content: space-between;
   }
 }
 
