@@ -635,13 +635,13 @@ input{
 
 .copyright{
   grid-area: copyright;
+  width: 100%;
   max-width: 100%;
 }
 
 .attribution{
   grid-area: attribution;
   font-size: 0.75rem;
-
 }
 
 .attribution a{
@@ -678,6 +678,7 @@ input{
 
   .footer-nav{
     gap: max(6vw, 1rem);
+    font-size: 0.65rem;
   }
 }
 
