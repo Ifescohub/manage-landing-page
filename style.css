@@ -600,7 +600,7 @@ a{
   color: var(--clr-primary)
 }
 
-
+/* Newsletter Form  */
 form{
   grid-area: form;
   display: flex;
@@ -635,11 +635,13 @@ input{
 
 .copyright{
   grid-area: copyright;
+  max-width: 100%;
 }
 
 .attribution{
   grid-area: attribution;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+
 }
 
 .attribution a{
@@ -675,9 +677,7 @@ input{
   }
 
   .footer-nav{
-    grid-area: nav;
-    columns: 2;
-    column-gap: max(4vw, 1rem);
+    gap: max(6vw, 1rem);
   }
 }
 
